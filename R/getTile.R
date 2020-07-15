@@ -372,11 +372,7 @@ methods::setMethod(
       , extent = raster::extent(x)
       , pixelSize = raster::res(x)
     )
-    message(paste0("outProj= ", sf::st_crs(x)))
-    message(paste0("extent= ", raster::extent(x)))
-    message(paste0("pixelSize= ", raster::res(x)))
-    message(paste0("x=", sf::st_crs(x)))
-    message(paste0("sr=", sf::st_crs(sr)))
+
     # if required, project extent object
     if (sf::st_crs(x) != sf::st_crs(sr)) {
       x = raster::projectExtent(x, sr)
@@ -388,6 +384,8 @@ methods::setMethod(
       )
     )
     print(sf::st_crop(sf::st_as_sf(sr), x))
+    print(str(selected))
+    message(paste0("nrow=", nrow(selected)))
     
     if (nrow(selected) == 0) {
       stop("Please assign a valid CRS to 'x' as it doesn't seem to be in EPSG:4326.")
