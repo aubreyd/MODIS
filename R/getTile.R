@@ -373,6 +373,12 @@ methods::setMethod(
       , pixelSize = raster::res(x)
     )
 
+    message(paste0("outProj= ", sf::st_crs(x)))
+    message(paste0("extent= ", raster::extent(x)))
+    message(paste0("pixelSize= ", raster::res(x)))
+    message(paste0("x=", sf::st_crs(x)))
+    message(paste0("sr=", sf::st_crs(sr)))
+    
     # if required, project extent object
     if (sf::st_crs(x) != sf::st_crs(sr)) {
       x = raster::projectExtent(x, sr)
@@ -383,6 +389,7 @@ methods::setMethod(
         sf::st_crop(sf::st_as_sf(sr), x)
       )
     )
+    
     print(sf::st_crop(sf::st_as_sf(sr), x))
     print(str(selected))
     message(paste0("nrow=", nrow(selected)))
