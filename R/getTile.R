@@ -380,7 +380,7 @@ methods::setMethod(
     
     selected = suppressWarnings(
       suppressMessages(
-        sf::st_crop(sr, x)
+        sf::st_crop(sf::st_as_sf(sr), x)
       )
     )
     
