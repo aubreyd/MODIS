@@ -361,7 +361,7 @@ methods::setMethod(
     x
     , ...
   ) {
-    message(paste0("x is Raster with proj ", raster::projection(x)))
+    message(paste0("Input x is Raster with proj ", raster::projection(x)))
     # if coord. ref. is missing, set to EPSG:4326
     if (is.na(raster::projection(x))) {
       raster::projection(x) = raster::projection(sr)
