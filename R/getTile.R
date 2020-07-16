@@ -361,7 +361,6 @@ methods::setMethod(
     x
     , ...
   ) {
-    message(paste0("Input x is Raster with proj ", raster::projection(x)))
     # if coord. ref. is missing, set to EPSG:4326
     if (is.na(raster::projection(x))) {
       raster::projection(x) = raster::projection(sr)
@@ -372,12 +371,6 @@ methods::setMethod(
       , extent = raster::extent(x)
       , pixelSize = raster::res(x)
     )
-
-    message(paste0("outProj= ", sf::st_crs(x)))
-    message(paste0("extent= ", raster::extent(x)))
-    message(paste0("pixelSize= ", raster::res(x)))
-    message(paste0("x=", sf::st_crs(x)))
-    message(paste0("sr=", sf::st_crs(sr)))
     
     # if required, project extent object
     if (sf::st_crs(x) != sf::st_crs(sr)) {
