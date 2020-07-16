@@ -401,8 +401,8 @@ methods::setMethod(
     methods::new(
       "MODISextent"
       , tile = tiles
-      , tileH = as.integer(selected$h)
-      , tileV = as.integer(selected$v)
+      , tileH = selected$h
+      , tileV = selected$v
       , extent = raster::extent(x)
       , system = "MODIS"
       , target = target
